@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
 </head>
 <body>
     <div id="container">
         <header>
             <div id="result">
                 <div class="invisible"></div>
-                <div id="equation"> 2 + 2 </div>
-                <div id="result-number"> 5 </div>
+                <div id="equation"> </div>
+                <div id="result-number"> </div>
             </div>
         </header>
         <main>
             <div id="content">
-                <div class="number">7</div>
-                <div class="number">8</div>
-                <div class="number">9</div>
-                <div class="sign">x</div>
+                <div class="number" onclick="addNumber(7);">7</div>
+                <div class="number" onclick="addNumber(8);">8</div>
+                <div class="number" onclick="addNumber(9);">9</div>
+                <div class="sign" onclick="addSign( 'x' );">x</div>
                 <div style="clear: both;"></div>
-                <div class="number">4</div>
-                <div class="number">5</div>
-                <div class="number">6</div>
-                <div class="sign"> -</div>
+                <div class="number" onclick="addNumber(4);">4</div>
+                <div class="number" onclick="addNumber(5);">5</div>
+                <div class="number" onclick="addNumber(6);">6</div>
+                <div class="sign" onclick="addSign( '-' )"> -</div>
                 <div style="clear: both;"></div>
-                <div class="number">1</div>
-                <div class="number">2</div>
-                <div class="number">3</div>
-                <div class="sign">+</div>
+                <div class="number" onclick="addNumber(1);">1</div>
+                <div class="number" onclick="addNumber(2);">2</div>
+                <div class="number" onclick="addNumber(3);">3</div>
+                <div class="sign" onclick="addSign( '+' );">+</div>
                 <div style="clear: both;"></div>
                 <div class="specialsign">+/-</div>
-                <div class="number">0</div>
+                <div class="number" onclick="addNumber(0);">0</div>
                 <div class="specialsign">,</div>
-                <div class="sign"> =</div>
+                <div class="sign" onclick="result();"> =</div>
                 <div style="clear: both;"></div>
             </div>
         </main>
