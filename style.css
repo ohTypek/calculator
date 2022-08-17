@@ -41,6 +41,15 @@ body {
     padding: 50px;
     margin: 30px;
     width: 60px;
+    text-align: center;
+    background-color: #474a4f;
+    border: 10px solid #2a2d30;
+}
+.number:active {
+    background-color: #9da1a8;
+}
+.number:hover {
+    background-color: #7d8085;
 }
 .sign {
     font-size: 80pt;
@@ -48,6 +57,14 @@ body {
     padding: 50px;
     margin: 30px;
     width: 60px;
+    background-color: #474a4f;
+    border: 10px solid #2a2d30;
+}
+.sign:active {
+    background-color: #9da1a8;
+}
+.sign:hover {
+    background-color: #7d8085;
 }
 .specialsign {
     font-size: 80pt;
@@ -55,4 +72,12 @@ body {
     margin: 30px;
     float:left;
     width: 60px;
+    background-color: #474a4f;
+    border: 10px solid #2a2d30;
+}
+.specialsign:active {
+    background-color: #9da1a8;
+}
+.specialsign:hover {
+    background-color: #7d8085;
 }
