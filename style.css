@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+#container {
+    height: 100%;
+    width: 100%;
+}
+#result {
+    height: 600px;
+    width: 100%;
+    background-color: #546778;
+}
+.invisible {
+    height: 60px;
+}
+#equation {
+    font-size: 130pt;
+    text-align: right;
+    margin-right: 50px;
+    padding: 10px;
+}
+#result-number {
+    font-size: 105pt;
+    opacity: 70%;
+    text-align: right;
+    padding: 20px;
+    margin-right: 50px;
+    margin-top: 60px;
+}
+.number {
+    float: left;
+}
