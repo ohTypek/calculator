@@ -30,6 +30,29 @@ body {
     margin-right: 50px;
     margin-top: 60px;
 }
+#content {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
 .number {
     float: left;
+    font-size: 80pt;
+    padding: 50px;
+    margin: 30px;
+    width: 60px;
+}
+.sign {
+    font-size: 80pt;
+    float: left;
+    padding: 50px;
+    margin: 30px;
+    width: 60px;
+}
+.specialsign {
+    font-size: 80pt;
+    padding: 50px;
+    margin: 30px;
+    float:left;
+    width: 60px;
 }
