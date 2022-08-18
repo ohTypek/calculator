@@ -52,16 +52,40 @@ function resultdisplay() {
     FHResult.innerHTML += equation.innerHTML;
     if (WSign == '-') {
         equation.innerHTML = Math.floor(result) - Math.floor(sResult)
-        console.log('substraction');
+        console.log('substraction ' + (Math.floor(result) - Math.floor(sResult)).toString());
     }
     if (WSign == '+') {
         equation.innerHTML = Math.floor(result) + Math.floor(sResult)
-        console.log('addition')
+        console.log('addition ' + (Math.floor(result) + Math.floor(sResult)).toString())
     }
     if (WSign == 'x') {
         equation.innerHTML = Math.floor(result) * Math.floor(sResult)
-        console.log('multiplication')
+        console.log('multiplication ' + (Math.floor(result) * Math.floor(sResult)).toString())
+    }
+    if (WSign == '/') {
+        equation.innerHTML = Math.floor(result) / Math.floor(sResult)
+        console.log('divide ' + (Math.floor(result) / Math.floor(sResult)).toString())
     }
     resultReady = true;
+    result = 0;
+    sResult = 0;
     isFh = false;
+    needNum = false;
+}
+function remove(hmRemove) {
+    var equation = document.querySelector('#equation');
+    var FHResult = document.querySelector('#result-number');
+
+    if (hmRemove == true) {
+        resultReady = false;
+        result = 0;
+        sResult = 0;
+        isFh = false;
+        needNum = false;
+        equation.innerHTML = " "
+        FHResult.innerHTML = " "
+    }
+    if (hmRemove == false) {
+        
+    }
 }
