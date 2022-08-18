@@ -50,7 +50,7 @@ function resultdisplay() {
     var equation = document.querySelector('#equation');
 
     FHResult.innerHTML += equation.innerHTML;
-    if (WSign == '-') {
+    if (WSign == '−') {
         equation.innerHTML = Math.floor(result) - Math.floor(sResult)
         console.log('substraction ' + (Math.floor(result) - Math.floor(sResult)).toString());
     }
@@ -58,11 +58,11 @@ function resultdisplay() {
         equation.innerHTML = Math.floor(result) + Math.floor(sResult)
         console.log('addition ' + (Math.floor(result) + Math.floor(sResult)).toString())
     }
-    if (WSign == 'x') {
+    if (WSign == '×') {
         equation.innerHTML = Math.floor(result) * Math.floor(sResult)
         console.log('multiplication ' + (Math.floor(result) * Math.floor(sResult)).toString())
     }
-    if (WSign == '/') {
+    if (WSign == '÷') {
         equation.innerHTML = Math.floor(result) / Math.floor(sResult)
         console.log('divide ' + (Math.floor(result) / Math.floor(sResult)).toString())
     }
@@ -86,6 +86,17 @@ function remove(hmRemove) {
         FHResult.innerHTML = " "
     }
     if (hmRemove == false) {
-        
+        let i = (result.toString()).length - 1;
+        var format = /[ ×−+÷ ]/;
+
+            if (isFh == false) {
+                result = (result.toString()).slice(0, -1);
+                equation.innerHTML = ((equation.innerHTML).toString()).slice(0, -1);
+                console.log(result);
+            } else {
+                sResult = ((sResult.toString()).slice(0, -1));
+                equation.innerHTML = ((equation.innerHTML).toString()).slice(0, -1);
+                console.log(FHResult);
+            }
     }
 }
