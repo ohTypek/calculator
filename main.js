@@ -100,3 +100,17 @@ function remove(hmRemove) {
             }
     }
 }
+function changeNegavity() {
+    var equation = document.querySelector('#equation');
+
+    if ((result.toString()).includes('-') == true) {
+        if (isFh == false) { result = result * -1; console.log(result); }
+        else { sResult = sResult * -1; console.log(sResult); }
+        equation.innerHTML = (equation.innerHTML).slice(1, (equation.innerHTML).length);
+    } else {
+        if (isFh == false) { result = -result; console.log(result); }
+        else { sResult = -sResult; console.log(sResult); }
+        equation.innerHTML = '-' + equation.innerHTML;
+    }
+    
+}
