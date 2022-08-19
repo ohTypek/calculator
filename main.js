@@ -4,6 +4,7 @@ var res = 0;
 let WSign;
 var isFh = false;
 var needNum = false;
+var zero = false;
 var resultReady = false;
 
 
@@ -13,9 +14,14 @@ function addNumber(num) {
     let text = num.toString();
     console.log(text + ' działa');
 
+    if (zero == false) {
+        equation.innerHTML = equation.innerHTML.toString().replace(0, '');
+        zero = true;
+    }
+
     if (resultReady == true) {
         equation.innerHTML = text;
-        FHResult.innerHTML = " "
+        FHResult.innerHTML = " ";
         resultReady = false;
     } else {
         equation.innerHTML += text;
@@ -78,6 +84,10 @@ function resultdisplay() {
         res = Math.floor(result) / Math.floor(sResult)
         console.log('divide ' + (Math.floor(result) / Math.floor(sResult)).toString())
     }
+
+    if(res.toString().includes('.') == true) {
+        res = res.toString().replace('.', ',');
+    }
     equation.innerHTML = res;
     resultReady = true;
     result = 0;
@@ -95,13 +105,13 @@ function remove(hmRemove) {
         sResult = 0;
         isFh = false;
         needNum = false;
+        zero = false;
         equation.innerHTML = "0"
         FHResult.innerHTML = " "
     }
     if (hmRemove == false) {
-        let i = (result.toString()).length - 1;
-        var format = /[ ×−+÷ ]/;
 
+        if (zero) {
             if (isFh == false) {
                 result = (result.toString()).slice(0, -1);
                 equation.innerHTML = ((equation.innerHTML).toString()).slice(0, -1);
@@ -111,6 +121,11 @@ function remove(hmRemove) {
                 equation.innerHTML = ((equation.innerHTML).toString()).slice(0, -1);
                 console.log(FHResult);
             }
+        }
+        if (equation.innerHTML.toString() == '') {
+            equation.innerHTML = 0;
+            console.log('show 0');
+        }
     }
 }
 function changeNegavity() {
