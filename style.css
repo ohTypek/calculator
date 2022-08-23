@@ -9,41 +9,41 @@ body {
     width: 100%;
 }
 #result {
-    height: 600px;
+    height: 200px;
     width: 100%;
     background-color: #546778;
 }
 .invisible {
-    height: 60px;
+    height: 10px;
 }
 #equation {
-    font-size: 130pt;
+    font-size: 50pt;
     text-align: right;
-    margin-right: 50px;
-    padding: 10px;
+    margin-right: 30px;
+    padding: 7px;
 }
 #result-number {
-    font-size: 105pt;
-    opacity: 70%;
+    font-size: 30pt;
+    opacity: 50%;
     text-align: right;
-    padding: 20px;
-    margin-right: 50px;
-    margin-top: 60px;
+    padding: 7px;
+    margin-right: 30px;
+    margin-top: 15px;
 }
 #content {
     width: 100%;
     height: 100%;
-    align-items: center;
+    text-align: center;
 }
 .number {
     float: left;
-    font-size: 80pt;
-    padding: 50px;
-    margin: 30px;
-    width: 60px;
+    font-size: 30pt;
+    padding: 13px;
+    margin: 5px;
+    width: 45px;
     text-align: center;
     background-color: #474a4f;
-    border: 10px solid #2a2d30;
+    border: 3px solid #2a2d30;
 }
 .number:active {
     background-color: #9da1a8;
@@ -52,13 +52,14 @@ body {
     background-color: #7d8085;
 }
 .sign {
-    font-size: 80pt;
-    float: left;
-    padding: 50px;
-    margin: 30px;
-    width: 60px;
+    font-size: 30pt;
+    padding: 13px;
+    margin: 5px;
+    float:left;
+    width: 45px;
     background-color: #474a4f;
-    border: 10px solid #2a2d30;
+    border: 3px solid #2a2d30;
+    text-align: center;
 }
 .sign:active {
     background-color: #9da1a8;
@@ -67,13 +68,14 @@ body {
     background-color: #7d8085;
 }
 .specialsign {
-    font-size: 80pt;
-    padding: 50px;
-    margin: 30px;
+    font-size: 30pt;
+    padding: 13px;
+    margin: 5px;
     float:left;
-    width: 60px;
+    width: 45px;
     background-color: #474a4f;
-    border: 10px solid #2a2d30;
+    border: 3px solid #2a2d30;
+    text-align: center;
 }
 .specialsign:active {
     background-color: #9da1a8;
