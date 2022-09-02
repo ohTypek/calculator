@@ -157,3 +157,7 @@ function addComma() {
 function numberWithSpaces(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+
+const dodajNumer = (num1, num2) => {
+    return num1 + num2;
+};
