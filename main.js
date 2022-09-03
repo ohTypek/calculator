@@ -15,7 +15,7 @@ var FHResult = document.querySelector('#result-number'); // first half of equati
 function addNum(num) {
     
     let text = num.toString();
-    console.log(text + ' działa');
+    console.log(text);
 
     if (zero == false) { // checks if the only symbol in equation holder is '0' and replaces it with a new number
         equation.innerHTML = equation.innerHTML.toString().replace(0, '');
@@ -70,23 +70,23 @@ function resultdisplay() {
 
     FHResult.innerHTML += equation.innerHTML;
     if (WSign == '−') { // substraction
-        res = substractNumber(Number(result), Number(sResult))
+        res = substractNumber(Number(result), Number(sResult));
         console.log("substraction: "+ res.toString() );
     }
     if (WSign == '+') { // addition
-        res = addNumber(Number(result), Number(sResult))
+        res = addNumber(Number(result), Number(sResult));
         console.log("addition: "+ res.toString() );
     }
     if (WSign == '×') { // multiplication
-        res = multiplyNumber(Number(result), Number(sResult))
+        res = multiplyNumber(Number(result), Number(sResult));
         console.log("multiplication: "+ res.toString() );
     }
     if (WSign == '÷') { // division
-        res = divideNumber(Number(result), Number(sResult))
+        res = divideNumber(Number(result), Number(sResult));
         console.log("divsion: "+ res.toString() );
     }
 
-    if(res.toString().includes('.') == true) {
+    if (res.toString().includes('.') == true) {
         res = res.toString().replace('.', ',');
     }
 
@@ -106,7 +106,7 @@ function remove(hmRemove) {
         FHResult.innerHTML = " ";
     }
     if (hmRemove == false) { // removes only the last character
-        if (zero) {
+        if (zero == true) {
             if (isSh == false) {
                 result = (result.toString()).slice(0, -1);
                 equation.innerHTML = ((equation.innerHTML).toString()).slice(0, -1);
@@ -114,7 +114,7 @@ function remove(hmRemove) {
             } else {
                 sResult = ((sResult.toString()).slice(0, -1));
                 equation.innerHTML = ((equation.innerHTML).toString()).slice(0, -1);
-                console.log(FHResult);
+                console.log(FHResult.innerHTML);
             }
         }
         if (equation.innerHTML.toString() == '') {
@@ -135,17 +135,16 @@ function changeNegavity() {
         else { sResult = -sResult; console.log(sResult); }
         equation.innerHTML = '-' + equation.innerHTML;
     }
-    
 }
 
-// adds comma in an equation | doesn't work yet
+// adds comma in an equation
 function addComma() {
     equation.innerHTML = equation.innerHTML + ',';
     if (isSh == false) {
-        result = result + ',';
+        result = result + '.';
         console.log(result);
     } else {
-        sResult += ',';
+        sResult += '.';
         console.log(sResult);
     } 
 }
@@ -159,15 +158,7 @@ function reset() {
 }
 
 // count functions
-const addNumber = (num1, num2) => {
-    return num1 + num2;
-};
-const substractNumber = (num1,num2) => {
-    return num1 - num2;
-};
-const multiplyNumber = (num1,num2) => {
-    return num1 * num2;
-};
-const divideNumber = (num1,num2) => {
-    return num1 / num2;
-};
+const addNumber = (num1, num2) => num1 + num2;
+const substractNumber = (num1, num2) => num1 - num2;
+const multiplyNumber = (num1,num2) => num1 * num2;
+const divideNumber = (num1, num2) => num1 / num2;
