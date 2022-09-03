@@ -12,12 +12,13 @@ body {
     height: 200px;
     width: 100%;
     background-color: #546778;
+    overflow: hidden;
 }
 .invisible {
     height: 10px;
 }
 #equation {
-    font-size: 50pt;
+    font-size: 42pt;
     text-align: right;
     margin-right: 30px;
     padding: 7px;

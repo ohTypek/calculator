@@ -44,56 +44,54 @@ function addNum(num) {
 }
 
 // adds sign to an equation
-function addSign(sign) {
+function addSign(NSign) {
     if (resultReady == true) {
+        if (res.toString().includes(',') == true)
+            res = res.toString().replace(',', '.');
         FHResult.innerHTML = " "
         result = res;
-        equation.innerHTML = equation.innerHTML + " " + sign;
+        equation.innerHTML = equation.innerHTML + " " + NSign;
         FHResult.innerHTML = equation.innerHTML;
-        WSign = sign;
+        sign = NSign;
         isSh = true;
         resultReady = false;
     } else {
         if (isSh == false) {
-            equation.innerHTML = equation.innerHTML + " " + sign;
+            equation.innerHTML = equation.innerHTML + " " + NSign;
             FHResult.innerHTML = equation.innerHTML;
-            WSign = sign;
+            sign = NSign;
             isSh = true;
         }
     }
     
 }
 
-// displays result in the 'result window'
+// displays the result in 'result window'
 function resultdisplay() {
-    console.log(Number(result) + WSign + Number(sResult));
 
-    FHResult.innerHTML += equation.innerHTML;
-    if (WSign == '−') { // substraction
-        res = substractNumber(Number(result), Number(sResult));
-        console.log("substraction: "+ res.toString() );
-    }
-    if (WSign == '+') { // addition
-        res = addNumber(Number(result), Number(sResult));
-        console.log("addition: "+ res.toString() );
-    }
-    if (WSign == '×') { // multiplication
-        res = multiplyNumber(Number(result), Number(sResult));
-        console.log("multiplication: "+ res.toString() );
-    }
-    if (WSign == '÷') { // division
-        res = divideNumber(Number(result), Number(sResult));
-        console.log("divsion: "+ res.toString() );
-    }
+    console.log(Math.floor(result) + sign + Math.floor(sResult));
+	FHResult.innerHTML += equation.innerHTML;
+
+	const signCheck = {
+		'−': substractNumber(Number(result), Number(sResult)),
+		'+': addNumber(Number(result), Number(sResult)),
+		'×': multiplyNumber(Number(result), Number(sResult)),
+		'÷': divideNumber(Number(result), Number(sResult))
+	}
+	res = signCheck[sign] //checks the sign and counts correct answerw
+		?? 'syntax error'
+	
+	console.log(res);
 
     if (res.toString().includes('.') == true) {
-        res = res.toString().replace('.', ',');
-    }
+		res = Math.round(res * 10000) / 10000;
+		res = res.toFixed(4);
+		res = res.toString().replace('.', ',');
+	}
 
-    // resets everything to deafult settings
     equation.innerHTML = res;
     resultReady = true;
-    reset();
+	reset();
 }
 
 // removes sign form an equation
