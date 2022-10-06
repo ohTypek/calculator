@@ -11,36 +11,24 @@ var resultReady = false; // did the person already get a result of previous equa
 var equation = document.querySelector('#equation'); // the equation holder 
 var FHResult = document.querySelector('#result-number'); // first half of equation holder
     
-// adds number to an equation
-function addNum(num) {
-    
+
+const newAddNum = (num) => {
+
     let text = num.toString();
-    console.log(text);
+    console(text)
 
-    if (zero == false) { // checks if the only symbol in equation holder is '0' and replaces it with a new number
-        equation.innerHTML = equation.innerHTML.toString().replace(0, '');
-        zero = true;
-    }
+    if (zero) { return; }
+    if (!resultReady) { equation.innerHTML += text; return; }
+    if (isSh) { if (!needNum) { equation.innerHTML = " "; needNum = true; equation.innerHTML += text } sResult += text; return; }
 
-    if (resultReady == true) { // checks if did the person already get a result of previous equation
-        equation.innerHTML = text;
-        FHResult.innerHTML = " ";
-        resultReady = false;
-    } else {
-        equation.innerHTML += text;
-    }
+    equation.innerHTML = equation.innerHTML.toString().replace(0, '');
+    zero = true;
+    equation.innerHTML = text;
+    FHResult.innerHTML = " ";
+    resultReady = false;
+    result += text;
+    console.log(result);
 
-    if (isSh == false) { // checks what part of the equation to update
-            result += text;
-            console.log(result);
-    } else {
-        if (needNum == false) { // checks if equation does contain zero at start
-            equation.innerHTML = " ";
-            needNum = true;
-            equation.innerHTML += text;
-        }
-        sResult += text;
-    }
 }
 
 // adds sign to an equation
