@@ -10,25 +10,36 @@ var resultReady = false; // did the person already get a result of previous equa
 
 var equation = document.querySelector('#equation'); // the equation holder 
 var FHResult = document.querySelector('#result-number'); // first half of equation holder
+
+function addNum(num) {
     
-
-const newAddNum = (num) => {
-
     let text = num.toString();
-    console(text)
+    console.log(text);
 
-    if (zero) { return; }
-    if (!resultReady) { equation.innerHTML += text; return; }
-    if (isSh) { if (!needNum) { equation.innerHTML = " "; needNum = true; equation.innerHTML += text } sResult += text; return; }
+    if (zero == false) { // checks if the only symbol in equation holder is '0' and replaces it with a new number
+        equation.innerHTML = equation.innerHTML.toString().replace(0, '');
+        zero = true;
+    }
 
-    equation.innerHTML = equation.innerHTML.toString().replace(0, '');
-    zero = true;
-    equation.innerHTML = text;
-    FHResult.innerHTML = " ";
-    resultReady = false;
-    result += text;
-    console.log(result);
+    if (resultReady == true) { // checks if did the person already get a result of previous equation
+        equation.innerHTML = text;
+        FHResult.innerHTML = " ";
+        resultReady = false;
+    } else {
+        equation.innerHTML += text;
+    }
 
+    if (isSh == false) { // checks what part of the equation to update
+            result += text;
+            console.log(result);
+    } else {
+        if (needNum == false) { // checks if equation does contain zero at start
+            equation.innerHTML = " ";
+            needNum = true;
+            equation.innerHTML += text;
+        }
+        sResult += text;
+    }
 }
 
 // adds sign to an equation
@@ -50,10 +61,10 @@ function addSign(NSign) {
         FHResult.innerHTML = equation.innerHTML;
         sign = NSign;
         isSh = true;
-    }    
+    }
 }
 
-// displays the result in 'result window'
+// displays the result in the 'result window'
 function resultdisplay() {
 
     console.log(Math.floor(result) + sign + Math.floor(sResult));
