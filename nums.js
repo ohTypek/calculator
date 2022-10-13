@@ -27,10 +27,6 @@ function start() {
   
   for (const litera of litery) {
 
-    if (litera == '+' || litera == '−' || litera == '×' || litera == '÷') {
-      tresc_diva += `<div class="sign main-css" onclick="addSign('` + litera + `')"> ` + litera +` </div>`;
-    }
-    
     if (litera == 'R' || litera == 'C' || litera == '±' || litera == ',' || litera == '+' || litera == '−' || litera == '×' || litera == '÷' || litera == '=') {
       //specialsigns
       if (litera == 'C') { tresc_diva += '<div class="specialsign main-css" onclick="remove(true);">' + litera + '</div>'; }
@@ -38,7 +34,9 @@ function start() {
       if (litera == '±') { tresc_diva += '<div class="specialsign main-css" onclick="changeNegavity()">' + litera + '</div>'; }
       if (litera == ',') { tresc_diva += '<div class="main-css specialsign" style="background: #292928; color: #fff;" onclick="addComma();">' + litera + '</div>'; }
       //sings
-      if (litera == '=') { tresc_diva += `<div class="sign main-css" onclick="resultDisplay()"> ` + litera + ' </div>' }
+      if (litera == '=') { tresc_diva += `<div class="sign main-css" onclick="resultDisplay()"> ` + litera + ' </div>'; }
+      if (litera == '+' || litera == '−' || litera == '×' || litera == '÷')
+        tresc_diva += `<div class="sign main-css" onclick="addSign('` + litera + `')"> ` + litera +` </div>`;
     }
     else {
       tresc_diva += litera != 0 ?

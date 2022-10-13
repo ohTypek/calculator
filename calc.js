@@ -80,7 +80,7 @@ function resultDisplay() {
 	res = signCheck[sign] //checks the sign and counts correct answer
 		?? 'syntax error'
 	
-	console.log(res);
+    console.log(res);
 
     if (res.toString().includes('.') == true) {
 		res = Math.round(res * 10000) / 10000;
