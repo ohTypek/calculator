@@ -1,3 +1,4 @@
+
 // variables
 let result = 0; // first half
 let sResult = 0; // second half
@@ -65,7 +66,7 @@ function addSign(NSign) {
 }
 
 // displays the result in the 'result window'
-function resultdisplay() {
+function resultDisplay() {
 
     console.log(Math.floor(result) + sign + Math.floor(sResult));
 	FHResult.innerHTML += equation.innerHTML;

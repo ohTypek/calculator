@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="pl">
 <head>
     <!-- meta -->
     <meta name="description" content="it's a calulator obviously, you can count things with it">
@@ -14,22 +15,20 @@
 
 </head>
 <body>
-    <div id="container">
-        <main>
-            <header>
-                <div id="result">
-                    <div id="result-number"> &zwj; </div> <!-- shows the equation -->
-                    <div id="equation">0</div> <!-- result windows -->
-                </div>
-            </header>
-            <section id="content">
-                <!-- code will be auto injected with JS -->
-            </section>
-        </main>
+    <main id="container">
+        <header>
+            <div id="result">
+                <div id="result-number"> &zwj; </div> <!-- shows the equation -->
+                <div id="equation">0</div> <!-- result windows -->
+            </div>
+        </header>
+        <section id="content">
+            <!-- code will be auto injected with JS -->
+        </section>
+    </main>
 
-        <!-- scripts -->
-        <script src="calc.js"></script>
-        <script src="nums.js"></script>
-        
-    </div>
+    <!-- scripts -->
+    <script src="nums.js"></script>
+    <script src="calc.js"></script>
 </body>
+</html>
