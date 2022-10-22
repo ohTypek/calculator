@@ -23,7 +23,7 @@ const litery = [
 var tresc_diva = "";
 
 window.onload =
-function start() {
+function inject() {
   
   for (const litera of litery) {
 
@@ -40,9 +40,9 @@ function start() {
     }
     else {
       tresc_diva += litera != 0 ?
-      '<div class="number main-css" onclick="addNum('+ litera +')">' + litera + ' </div>'
+      '<div class="number main-css">' + litera + ' </div>'
       :
-      '<div class="number main-css" style="width: 8.2rem; text-align: center; border-radius: 4.1rem;" onclick="addNum(0)"> 0 </div>';
+      '<div class="number main-css" style="width: 8.2rem; text-align: center; border-radius: 4.1rem;"> 0 </div>';
     }
     
     (litera.indexOf + 1) % 4 == 0 ? tresc_diva += '<div style="clear:both;"></div>' : null;

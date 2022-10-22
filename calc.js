@@ -9,35 +9,39 @@ var needNum = false; // if got a result of previous equation reset numbers
 var zero = false; // does contain zero at start
 var resultReady = false; // did the person already get a result of previous equation
 
-var equation = document.querySelector('#equation'); // the equation holder 
-var FHResult = document.querySelector('#result-number'); // first half of equation holder
+var equation_holder = document.querySelector('#equation'); // the equation holder 
+var result_holder = document.querySelector('#result-number'); // first half of equation holder
+
+var BTNnumbers = document.querySelectorAll(".number");
+var BTNsign = document.querySelectorAll(".sign");
+var BTNspecialsign = document.querySelectorAll(".specialsign");
 
 function addNum(num) {
-    
+
     let text = num.toString();
     console.log(text);
 
     if (zero == false) { // checks if the only symbol in equation holder is '0' and replaces it with a new number
-        equation.innerHTML = equation.innerHTML.toString().replace(0, '');
+        equation_holder.innerHTML = equation_holder.innerHTML.toString().replace(0, '');
         zero = true;
     }
 
     if (resultReady == true) { // checks if did the person already get a result of previous equation
-        equation.innerHTML = text;
-        FHResult.innerHTML = " ";
+        equation_holder.innerHTML = text;
+        result_holder.innerHTML = " ";
         resultReady = false;
     } else {
-        equation.innerHTML += text;
+        equation_holder.innerHTML += text;
     }
 
     if (isSh == false) { // checks what part of the equation to update
-            result += text;
-            console.log(result);
+        result += text;
+        console.log(result);
     } else {
         if (needNum == false) { // checks if equation does contain zero at start
-            equation.innerHTML = " ";
+            equation_holder.innerHTML = " ";
             needNum = true;
-            equation.innerHTML += text;
+            equation_holder.innerHTML += text;
         }
         sResult += text;
     }
@@ -48,18 +52,18 @@ function addSign(NSign) {
     if (resultReady == true) {
         if (res.toString().includes(',') == true)
             res = res.toString().replace(',', '.');
-        
-        FHResult.innerHTML = " "
+    
+        result_holder.innerHTML = " "
         result = res;
-        equation.innerHTML = equation.innerHTML + " " + NSign;
-        FHResult.innerHTML = equation.innerHTML;
+        equation_holder.innerHTML = equation_holder.innerHTML + " " + NSign;
+        result_holder.innerHTML = equation_holder.innerHTML;
         sign = NSign;
         isSh = true;
         resultReady = false;
     }
     if (isSh == false) {
-        equation.innerHTML = equation.innerHTML + " " + NSign;
-        FHResult.innerHTML = equation.innerHTML;
+        equation_holder.innerHTML = equation_holder.innerHTML + " " + NSign;
+        result_holder.innerHTML = equation_holder.innerHTML;
         sign = NSign;
         isSh = true;
     }
@@ -69,28 +73,28 @@ function addSign(NSign) {
 function resultDisplay() {
 
     console.log(Math.floor(result) + sign + Math.floor(sResult));
-	FHResult.innerHTML += equation.innerHTML;
+    result_holder.innerHTML += equation_holder.innerHTML;
 
-	const signCheck = {
-		'−': substractNumber(Number(result), Number(sResult)),
-		'+': addNumber(Number(result), Number(sResult)),
-		'×': multiplyNumber(Number(result), Number(sResult)),
-		'÷': divideNumber(Number(result), Number(sResult))
-	}
-	res = signCheck[sign] //checks the sign and counts correct answer
-		?? 'syntax error'
-	
+    const signCheck = {
+        '−': substractNumber(Number(result), Number(sResult)),
+        '+': addNumber(Number(result), Number(sResult)),
+        '×': multiplyNumber(Number(result), Number(sResult)),
+        '÷': divideNumber(Number(result), Number(sResult))
+    }
+    res = signCheck[sign] //checks the sign and counts correct answer
+        ?? 'syntax error'
+
     console.log(res);
 
     if (res.toString().includes('.') == true) {
-		res = Math.round(res * 10000) / 10000;
-		res = res.toFixed(4);
-		res = res.toString().replace('.', ',');
-	}
+        res = Math.round(res * 10000) / 10000;
+        res = res.toFixed(4);
+        res = res.toString().replace('.', ',');
+    }
 
-    equation.innerHTML = res;
+    equation_holder.innerHTML = res;
     resultReady = true;
-	reset();
+    reset();
 }
 
 // removes sign form an equation
@@ -99,23 +103,23 @@ function remove(hmRemove) {
         reset();
         resultReady = false;
         zero = false;
-        equation.innerHTML = "0";
-        FHResult.innerHTML = " ";
+        equation_holder.innerHTML = "0";
+        result_holder.innerHTML = " ";
     }
     if (hmRemove == false) { // removes only the last character
         if (zero == true) {
             if (isSh == false) {
                 result = (result.toString()).slice(0, -1);
-                equation.innerHTML = ((equation.innerHTML).toString()).slice(0, -1);
+                equation_holder.innerHTML = ((equation_holder.innerHTML).toString()).slice(0, -1);
                 console.log(result);
             } else {
                 sResult = ((sResult.toString()).slice(0, -1));
-                equation.innerHTML = ((equation.innerHTML).toString()).slice(0, -1);
-                console.log(FHResult.innerHTML);
+                equation_holder.innerHTML = ((equation_holder.innerHTML).toString()).slice(0, -1);
+                console.log(result - holder.innerHTML);
             }
         }
-        if (equation.innerHTML.toString() == '') {
-            equation.innerHTML = 0;
+        if (equation_holder.innerHTML.toString() == '') {
+            equation_holder.innerHTML = 0;
             console.log('show 0');
         }
     }
@@ -123,27 +127,27 @@ function remove(hmRemove) {
 
 // chnages the sign before equation | positive or negative
 function changeNegavity() {
-    if ((equation.innerHTML.toString()).includes('-') == true) {
+    if ((equation_holder.innerHTML.toString()).includes('-') == true) {
         if (isSh == false) { result = result * -1; console.log(result); }
         else { sResult = sResult * -1; console.log(sResult); }
-        equation.innerHTML = (equation.innerHTML).slice(1, (equation.innerHTML).length);
+        equation_holder.innerHTML = (equation_holder.innerHTML).slice(1, (equation_holder.innerHTML).length);
     } else {
         if (isSh == false) { result = -result; console.log(result); }
         else { sResult = -sResult; console.log(sResult); }
-        equation.innerHTML = '-' + equation.innerHTML;
+        equation_holder.innerHTML = '-' + equation_holder.innerHTML;
     }
 }
 
 // adds comma in an equation
 function addComma() {
-    equation.innerHTML = equation.innerHTML + ',';
+    equation_holder.innerHTML = equation_holder.innerHTML + ',';
     if (isSh == false) {
         result = result + '.';
         console.log(result);
     } else {
         sResult += '.';
         console.log(sResult);
-    } 
+    }
 }
 
 // resets everything
@@ -157,5 +161,22 @@ function reset() {
 // count functions
 const addNumber = (num1, num2) => num1 + num2;
 const substractNumber = (num1, num2) => num1 - num2;
-const multiplyNumber = (num1,num2) => num1 * num2;
+const multiplyNumber = (num1, num2) => num1 * num2;
 const divideNumber = (num1, num2) => num1 / num2;
+
+BTNnumbers.forEach(number => number.addEventListener('click', () => {
+    addNum(number.innerText)
+}));
+
+BTNsign.forEach(sign => sign.addEventListener('click', () => {
+    if (sign.innerText === '=') { resultDisplay(); return; }
+
+    addSign(sign.innerText)
+}));
+
+BTNspecialsign.forEach(splSign => splSign.addEventListener('click', () => {
+    if (splSign.innerText === 'C') { remove(true); return; }
+    if (splSign.innerText === 'R') { remove(false); return; }
+    if (splSign.innerText === ',') { addComma(); return; }
+    if (splSign.innerText === '±') { changeNegavity(); return; }
+}));
