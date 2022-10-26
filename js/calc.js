@@ -165,18 +165,23 @@ const multiplyNumber = (num1, num2) => num1 * num2;
 const divideNumber = (num1, num2) => num1 / num2;
 
 BTNnumbers.forEach(number => number.addEventListener('click', () => {
-    addNum(number.innerText)
+    addNum(number.getAttribute('data-number'))
 }));
 
 BTNsign.forEach(sign => sign.addEventListener('click', () => {
-    if (sign.innerText === '=') { resultDisplay(); return; }
+    if (sign.getAttribute('data-sign') === '*') { addSign('×'); return; }
+    if (sign.getAttribute('data-sign') === '/') { addSign('÷'); return; }
+    if (sign.getAttribute('data-sign') === '-') { addSign('−'); return; }
+    if (sign.getAttribute('data-sign') === '=') { resultDisplay(); return; }
 
-    addSign(sign.innerText)
+    addSign(sign.getAttribute('data-sign'));
 }));
 
 BTNspecialsign.forEach(splSign => splSign.addEventListener('click', () => {
-    if (splSign.innerText === 'C') { remove(true); return; }
-    if (splSign.innerText === 'R') { remove(false); return; }
-    if (splSign.innerText === ',') { addComma(); return; }
-    if (splSign.innerText === '±') { changeNegavity(); return; }
+    if (splSign.getAttribute('data-specialsign') === 'C') { remove(true); return; }
+    if (splSign.getAttribute('data-specialsign') === 'R') { remove(false); return; }
+    if (splSign.getAttribute('data-specialsign') === ',') { addComma(); return; }
+    if (splSign.getAttribute('data-specialsign') === '+/-') { changeNegavity(); return; }
+
+    equation_holder.innerText = 'syntax error';
 }));

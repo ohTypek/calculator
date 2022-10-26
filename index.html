@@ -3,7 +3,7 @@
 <head>
     <!-- meta -->
     <meta name="description" content="it's a calulator obviously, you can count things with it">
-    <meta name="keywords" content="kalkulator, liczby, mnożenie, dzielenie, dodawania, odejmowanie">
+    <meta name="keywords" content="kalkulator, liczby, mnożenie, dzielenie, dodawanie, odejmowanie">
     <meta name="author" content="Tymoteusz Berczyński">
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,31 +27,16 @@
         </header>
         
         <section id="content">
-            <div class="specialsign main-css"> C </div>
-            <div class="specialsign main-css"> R </div>
-            <div class="specialsign main-css"> ± </div>
-            <div class="sign main-css"> ÷ </div>
-            <div class="number main-css">7</div>
-            <div class="number main-css">8</div>
-            <div class="number main-css">9</div>
-            <div class="sign main-css"> × </div>
-            <div class="number main-css">4</div>
-            <div class="number main-css">5</div>
-            <div class="number main-css">6</div>
-            <div class="sign main-css"> − </div>
-            <div class="number main-css">1</div>
-            <div class="number main-css">2</div>
-            <div class="number main-css">3</div>
-            <div class="sign main-css"> + </div>
-            <div class="number main-css" style="width: 8.2rem; text-align: center; border-radius: 4.1rem;"> 0 </div>
-            <div class="main-css specialsign" style="background: #292928; color: #fff;"> , </div>
-            <div class="sign main-css"> = </div>
             <!-- code will be auto injected with JS -->
         </section>
 
     </main>
 
     <!-- scripts -->
-    <script src="calc.js"></script>
+    <script>
+        document.getElementById('content').innerHTML = null;
+    </script>
+    <script src="js/inject.js"></script>
+    <script src="js/calc.js"></script>
 </body>
 </html>

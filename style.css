@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+:root {
+    --number-bg: #292928;
+    --number-click-bg: #343034;
+
+    --sign-bg: #e4900a;
+    --sign-click-bg: #E49036;
+
+    --specialsign-bg: #959595;
+    --specialsign-click: #aeaeaf;
+
+    --font-white: #fff;
+    --font-black: #000;
+    --body-bg: #000;
+}
+
 body {
     margin: 0;
     font-family: 'Lato', sans-serif; 
-    background: #000;
-    color: #fff;
+    background: var(--body-bg);
+    color: var(--font-white);
 }
 #container {
     max-width: 350px;
@@ -51,21 +66,28 @@ body {
     border-radius: 4rem;
 }
 .number {
-    background: #292928 !important;
+    background: var(--number-bg);
+}
+.number[data-number="0"] {
+    width: 8.2rem; text-align: center; border-radius: 4.1rem;
 }
 .number:active {
-    background: #aeaeaf;
+    background: var(--number-click-bg);
 }
 .sign {
-    background: #e4900a !important;
+    background: var(--sign-bg);
 }
 .sign:active {
-    background: #aeaeaf;
+    background: var(--sign-click-bg);
 }
 .specialsign {
-    background: #959595;
-    color: #000;
+    background: var(--specialsign-bg);
+    color: var(--font-black);
+}
+.specialsign[data-specialsign=","] {
+    background: var(--number-bg);
+    color: var(--font-white);
 }
 .specialsign:active {
-    background: #aeaeaf;
+    background: var(--specialsign-click);
 }
