@@ -3,6 +3,8 @@ let divide = '÷';
 let multiply = '×';
 let negative = '±';
 
+document.getElementById('content').innerHTML = null;
+
 const signs = [
   'C',
   'R',
@@ -26,6 +28,7 @@ const signs = [
 ];
 
 for (const sign of signs) {
+
   let target = document.querySelector('#content');
   let div = document.createElement('div');
 
