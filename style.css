@@ -68,9 +68,6 @@ body {
 .number {
     background: var(--number-bg);
 }
-.number[data-number="0"] {
-    width: 8.2rem; text-align: center; border-radius: 4.1rem;
-}
 .number:active {
     background: var(--number-click-bg);
 }
@@ -83,10 +80,6 @@ body {
 .specialsign {
     background: var(--specialsign-bg);
     color: var(--font-black);
-}
-.specialsign[data-specialsign=","] {
-    background: var(--number-bg);
-    color: var(--font-white);
 }
 .specialsign:active {
     background: var(--specialsign-click);
